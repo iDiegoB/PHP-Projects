@@ -5,22 +5,22 @@ $descripcion = "Desarrollo soluciones digitales modernas, limpias y escalables c
 $email = "diegobarrabarrera@gmail.com";
 $telefono = "+56 9 7688 1742";
 $cv = "cv/Diego_Barra_CV.pdf";
-$foto = "img/perfil.jpg";
+$foto = "img/xd.png";
 $proyectos = [
     [
         "titulo" => "Sistema de Ventas – Minimarket",
         "descripcion" => "Sistema de ventas, inventario y facturación desarrollado en PHP.",
-        "imagen" => "img/proyecto1.jpg"
+        "imagen" => "img/xd.png"
     ],
     [
         "titulo" => "Juego 2D en Unity",
         "descripcion" => "Videojuego 2D con animaciones, puntaje y narrativa.",
-        "imagen" => "img/proyecto2.jpg"
+        "imagen" => "img/xd.png"
     ],
     [
         "titulo" => "App Seguridad Condominio",
         "descripcion" => "Aplicación para monitoreo y control de accesos.",
-        "imagen" => "img/proyecto3.jpg"
+        "imagen" => "img/xd.png"
     ]
 ];
 
@@ -62,26 +62,37 @@ $habilidades = [
         }
 
         :root {
-            --c1: #03045E;
-            --c2: #023E8A;
-            --c3: #0077B6;
-            --c4: #0096C7;
-            --c5: #00B4D8;
-            --c6: #48CAE4;
-            --c7: #90E0EF;
-            --c8: #ADE8F4;
-            --c9: #CAF0F8;
+            /* Base neutra */
+            --black: #0f0f14;
+            --white: #ffffff;
 
-            --bg: var(--c9);
-            --text: var(--c1);
-            --card: #fff;
+            /* Pasteles masculinos */
+            --p1: #e6e8ee;
+            /* gris pastel claro */
+            --p2: #cfd6e0;
+            /* azul grisáceo */
+            --p3: #b8c2d6;
+            /* azul pastel sobrio */
+            --p4: #9faec4;
+            /* lavanda gris */
+            --p5: #8fa3a8;
+            /* verde gris pastel */
+
+            /* UI */
+            --bg: var(--white);
+            --text: var(--black);
+            --card: #f6f7f9;
+            --accent: #8faecb;
         }
+
 
         body.dark {
-            --bg: #0b132b;
-            --text: #eaeaea;
-            --card: #1c2541;
+            --bg: #0f0f14;
+            --text: #e8e9ee;
+            --card: #1a1b22;
+            --accent: #9faec4;
         }
+
 
         body {
             background: var(--bg);
@@ -117,38 +128,14 @@ $habilidades = [
             font-size: 1.3rem;
         }
 
-        .btn-main {
-            position: relative;
-            background: linear-gradient(135deg, #00E5FF, #48CAE4);
-            color: #03045E;
-            border: 1px solid rgba(255, 255, 255, .4);
-            padding: 14px 30px;
-            border-radius: 40px;
-            font-weight: 700;
-            letter-spacing: .5px;
-            box-shadow:
-                0 10px 30px rgba(0, 229, 255, .35),
-                inset 0 0 0 rgba(255, 255, 255, 0);
-            transition: all .4s cubic-bezier(.22, .61, .36, 1);
-            backdrop-filter: blur(6px);
-        }
 
-        .btn-main:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow:
-                0 0 35px rgba(0, 229, 255, .9),
-                0 0 70px rgba(72, 202, 228, .6);
-            color: #03045E;
-        }
-
-
-        .card {
+        .card,
+        .project-card {
             background: var(--card);
-            border-radius: 20px;
-            border: none;
-            padding: 30px;
-            transition: all .4s cubic-bezier(.22, .61, .36, 1);
+            border-radius: 22px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
         }
+
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
@@ -253,7 +240,7 @@ $habilidades = [
         /* ===== ANIME STYLE ===== */
 
         .hero {
-            background: linear-gradient(135deg, #03045E, #0077B6, #00B4D8);
+            background: linear-gradient(135deg, #ffffff, #ffffff, #ffffff);
             position: relative;
             overflow: hidden;
         }
@@ -263,8 +250,8 @@ $habilidades = [
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 20%, rgba(72, 202, 228, .25), transparent 40%),
-                radial-gradient(circle at 80% 60%, rgba(0, 180, 216, .25), transparent 40%);
+                radial-gradient(circle at 20% 20%, rgba(253, 253, 253, 0.25), transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(255, 255, 255, 0.25), transparent 40%);
             pointer-events: none;
         }
 
@@ -277,36 +264,40 @@ $habilidades = [
 
         /* BOTONES */
         .btn-main {
-            background: linear-gradient(135deg, #00B4D8, #48CAE4);
-            color: #03045E;
-            box-shadow: 0 0 0 rgba(72, 202, 228, 0);
-            transition: all .4s cubic-bezier(.22, .61, .36, 1);
+            background: linear-gradient(135deg, #cfd6e0, #b8c2d6);
+            color: #0f0f14;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 40px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+            transition: all .35s cubic-bezier(.22, .61, .36, 1);
         }
 
         .btn-main:hover {
-            box-shadow: 0 0 25px rgba(72, 202, 228, .7);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .18);
         }
 
         /* PROFILE */
         .profile-img {
             border-radius: 24px;
-            border: 3px solid #48CAE4;
+            border: 3px solid #ffffff;
             box-shadow:
-                0 0 0 4px rgba(72, 202, 228, .2),
-                0 20px 40px rgba(0, 0, 0, .25);
+                0 0 0 4px rgb(255, 255, 255),
+                0 10px 20px rgb(255, 255, 255);
         }
 
         /* PROJECTS */
         .project-card {
-            background: linear-gradient(180deg, #ADE8F4, #CAF0F8);
-            border: 1px solid rgba(0, 180, 216, .4);
-            box-shadow: 0 20px 40px rgba(3, 4, 94, .15);
+            background: linear-gradient(180deg, #ffffff, #000000);
+            box-shadow: 0 10px 20px rgb(0, 0, 0);
+            color: #ffffff;
         }
 
         body.dark .project-card {
-            background: linear-gradient(180deg, #1c2541, #0b132b);
-            border-color: rgba(72, 202, 228, .4);
+            background: linear-gradient(180deg, #f8f8f8, #0000005d);
+            border-color: rgb(255, 255, 255);
         }
 
         .project-card::before {
@@ -314,12 +305,12 @@ $habilidades = [
             position: absolute;
             inset: 0;
             border-radius: 24px;
-            box-shadow: 0 0 0 rgba(72, 202, 228, 0);
+            box-shadow: 0 20px 40px rgb(255, 255, 255);
             transition: .4s;
         }
 
         .project-card:hover::before {
-            box-shadow: 0 0 30px rgba(72, 202, 228, .6);
+            box-shadow: 0 20px 40px rgb(255, 255, 255);
         }
 
         /* IMAGE PANEL */
@@ -330,8 +321,9 @@ $habilidades = [
 
         /* BADGES */
         .badge-skill {
-            background: linear-gradient(135deg, #90E0EF, #48CAE4);
-            color: #03045E;
+            background: linear-gradient(135deg, #128bdb, #000000);
+            color: #ffffff;
+            font-weight: 700;
             box-shadow: 0 5px 15px rgba(72, 202, 228, .4);
         }
 
@@ -351,43 +343,85 @@ $habilidades = [
         }
 
         .bg-hero {
-            background: linear-gradient(135deg, #03045E, #0077B6, #00B4D8);
+            background: linear-gradient(135deg, #0f0f14, #1a1b22);
             color: white;
         }
 
         .bg-about {
-            background: #CAF0F8;
+            background: var(--p1);
         }
 
         .bg-skills {
-            background: #ADE8F4;
+            background: var(--p2);
         }
 
         .bg-projects {
-            background: #90E0EF;
+            background: var(--p3);
         }
 
         .bg-contact {
-            background: #48CAE4;
+            background: var(--p4);
         }
 
         /* Dark mode */
         body.dark .bg-about {
-            background: #0b132b;
+            background: #14151b;
         }
 
         body.dark .bg-skills {
-            background: #1c2541;
+            background: #1a1b22;
         }
 
         body.dark .bg-projects {
-            background: #03045E;
+            background: #20222b;
         }
 
         body.dark .bg-contact {
-            background: #023E8A;
+            background: #262833;
+        }
+
+
+        /* Animación individual de proyectos */
+        .project-card {
+            opacity: 0;
+            transform: translateY(60px) scale(0.96);
+            transition: all .8s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .project-card.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Animación de secciones */
+        section {
+            opacity: 0;
+            transform: translateY(60px);
+            transition:
+                opacity .9s cubic-bezier(.22, .61, .36, 1),
+                transform .9s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        /* Cuando aparece */
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card {
+            opacity: 0;
+            transform: translateY(40px) scale(.97);
+            transition:
+                opacity .8s cubic-bezier(.22, .61, .36, 1),
+                transform .8s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .project-card.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
     </style>
+
 
 </head>
 
@@ -413,7 +447,7 @@ $habilidades = [
     </section>
 
     <!-- SOBRE MI -->
-    <section id="sobre" class="fade bg-about" data-bg>
+    <section id="sobre" class="bg-about" data-bg>
         <div class="container-narrow">
             <div class="row align-items-center g-5">
                 <div class="col-md-5 text-center">
@@ -437,7 +471,7 @@ $habilidades = [
     </section>
 
     <!-- HABILIDADES -->
-    <section id="habilidades" class="fade bg-skills" data-bg>
+    <section id="habilidades" class="bg-skills" data-bg>
         <div class="container-narrow text-center">
             <h2>Habilidades</h2>
             <div class="mt-4">
@@ -448,7 +482,7 @@ $habilidades = [
         </div>
     </section>
     <!-- PROYECTOS -->
-    <section id="proyectos" class="fade bg-projects" data-bg>
+    <section id="proyectos" class="bg-projects" data-bg>
         <div class="container-narrow">
             <h2 class="text-center">Proyectos</h2>
 
@@ -467,7 +501,7 @@ $habilidades = [
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="fade text-center bg-contact" data-bg>
+    <section id="contacto" class="text-center bg-contact" data-bg>
         <div class="container-narrow">
             <h2>Contacto</h2>
             <p class="mt-3"><?= $email ?></p>
@@ -480,18 +514,9 @@ $habilidades = [
     </footer>
 
     <script>
-        /* Scroll Animations (Apple/Vercel style) */
-        const items = document.querySelectorAll('.fade');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) e.target.classList.add('show');
-            });
-        }, {
-            threshold: .15
-        });
-        items.forEach(i => observer.observe(i));
-
-        /* Dark Mode */
+        /* =========================
+       DARK MODE
+    ========================= */
         function toggleDark() {
             document.body.classList.toggle('dark');
             localStorage.setItem('dark', document.body.classList.contains('dark'));
@@ -500,8 +525,37 @@ $habilidades = [
         if (localStorage.getItem('dark') === 'true') {
             document.body.classList.add('dark');
         }
-        /* Background transition per section */
-        const sections = document.querySelectorAll('section[data-bg]');
+
+        /* =========================
+           APARICIÓN DE SECTIONS
+           (Apple / Vercel style)
+        ========================= */
+        const allSections = document.querySelectorAll('section');
+
+        const sectionObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        allSections.forEach(section => {
+            if (section.classList.contains('hero')) {
+                section.classList.add('show'); // Hero visible al cargar
+            } else {
+                sectionObserver.observe(section);
+            }
+        });
+
+        /* =========================
+           FONDOS POR SECCIÓN
+           (transición suave)
+        ========================= */
+        const bgSections = document.querySelectorAll('section[data-bg]');
 
         const bgObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -513,8 +567,33 @@ $habilidades = [
             threshold: 0.3
         });
 
-        sections.forEach(s => bgObserver.observe(s));
+        bgSections.forEach(s => bgObserver.observe(s));
+
+        /* =========================
+           PROYECTOS – STAGGER FIX
+           (esto estaba roto antes)
+        ========================= */
+        const projectCards = document.querySelectorAll('.project-card');
+
+        const projectObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = Array.from(projectCards);
+                    const index = cards.indexOf(entry.target);
+
+                    entry.target.style.transitionDelay = `${index * 120}ms`;
+                    entry.target.classList.add('show');
+
+                    projectObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        projectCards.forEach(card => projectObserver.observe(card));
     </script>
+
 
 </body>
 
