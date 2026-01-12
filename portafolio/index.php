@@ -1,11 +1,11 @@
 <?php
-$nombre = "Diego Barra";
+$nombre = "Diego Maximiliano Barra Barrera";
 $titulo = "Estudiante de Ingeniería Informática";
 $descripcion = "Desarrollo soluciones digitales modernas, limpias y escalables con foco en software, web y videojuegos.";
-$email = "diegobarrabarrera@gmail.com";
-$telefono = "+56 9 7688 1742";
-$cv = "cv/Diego_Barra_CV.pdf";
-$foto = "img/xd.png";
+$email = "diego@gmail.com";
+$telefono = "+56 ";
+$cv = "cv/CV_Diego_Barra.pdf";
+$foto = "img/perfil.jpeg";
 $proyectos = [
     [
         "titulo" => "Proyecto-de-integracion",
@@ -62,36 +62,38 @@ $habilidades = [
         }
 
         :root {
-            /* Base neutra */
-            --black: #0f0f14;
-            --white: #ffffff;
-
-            /* Pasteles masculinos */
-            --p1: #e6e8ee;
-            /* gris pastel claro */
-            --p2: #cfd6e0;
-            /* azul grisáceo */
-            --p3: #b8c2d6;
-            /* azul pastel sobrio */
-            --p4: #9faec4;
-            /* lavanda gris */
-            --p5: #8fa3a8;
-            /* verde gris pastel */
-
-            /* UI */
-            --bg: var(--white);
-            --text: var(--black);
+            /* Base */
+            --bg: #ffffff;
+            --text: #0f0f14;
             --card: #f6f7f9;
-            --accent: #8faecb;
-        }
+            --border: rgba(0, 0, 0, .08);
 
+            /* Pastel masculino */
+            --accent: #8faecb;
+            --accent-soft: #cfd6e0;
+            --accent-strong: #b8c2d6;
+
+            /* Sombras */
+            --shadow-sm: 0 10px 25px rgba(0, 0, 0, .08);
+            --shadow-md: 0 25px 60px rgba(0, 0, 0, .12);
+            --shadow-lg: 0 40px 90px rgba(0, 0, 0, .18);
+        }
 
         body.dark {
             --bg: #0f0f14;
             --text: #e8e9ee;
             --card: #1a1b22;
+            --border: rgba(255, 255, 255, .08);
+
             --accent: #9faec4;
+            --accent-soft: #2a2d3a;
+            --accent-strong: #3b3f52;
+
+            --shadow-sm: 0 10px 25px rgba(0, 0, 0, .6);
+            --shadow-md: 0 25px 60px rgba(0, 0, 0, .7);
+            --shadow-lg: 0 40px 90px rgba(0, 0, 0, .85);
         }
+
 
 
         body {
@@ -115,9 +117,18 @@ $habilidades = [
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--c1), var(--c3));
-            color: white;
+            background: linear-gradient(135deg,
+                    var(--accent-soft),
+                    var(--bg));
+            transition: background .6s ease;
         }
+
+        body.dark .hero {
+            background: linear-gradient(135deg,
+                    #14151b,
+                    #0f0f14);
+        }
+
 
         .hero h1 {
             font-size: 3.2rem;
@@ -182,8 +193,9 @@ $habilidades = [
             cursor: pointer;
             font-size: .9rem;
             font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
             transition: all .3s ease;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
         }
 
         .toggle-dark:hover {
@@ -264,20 +276,22 @@ $habilidades = [
 
         /* BOTONES */
         .btn-main {
-            background: linear-gradient(135deg, #cfd6e0, #b8c2d6);
-            color: #0f0f14;
+            background: linear-gradient(135deg, var(--accent-soft), var(--accent-strong));
+            color: var(--text);
             border: none;
-            padding: 14px 30px;
-            border-radius: 40px;
+            padding: 14px 34px;
+            border-radius: 999px;
             font-weight: 700;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+            letter-spacing: .3px;
+            box-shadow: var(--shadow-sm);
             transition: all .35s cubic-bezier(.22, .61, .36, 1);
         }
 
         .btn-main:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, .18);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
         }
+
 
         /* PROFILE */
         .profile-img {
@@ -427,6 +441,329 @@ $habilidades = [
             opacity: 1;
             transform: translateY(0) scale(1);
         }
+
+        /* CONTACTO */
+        .contact-card {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 28px;
+            max-width: 520px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, .12);
+            transition: transform .4s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            font-size: 1.1rem;
+            margin: 16px 0;
+        }
+
+        .contact-item a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+   ABOUT – VISUAL UPGRADE
+========================= */
+        .about-card {
+            background: var(--card);
+            border-radius: 36px;
+            padding: 60px 50px;
+            box-shadow: 0 40px 90px rgba(0, 0, 0, .12);
+        }
+
+        /* Imagen grande y protagonista */
+        .about-photo {
+            position: relative;
+            border-radius: 32px;
+            overflow: hidden;
+            max-width: 420px;
+            margin: auto;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, .25);
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            transition: transform .6s ease;
+        }
+
+        .about-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Texto */
+        .about-card .lead {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        /* Tags */
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .about-tags span {
+            background: linear-gradient(135deg, #cfd6e0, #b8c2d6);
+            color: #0f0f14;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: .9rem;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+            transition: transform .3s ease;
+        }
+
+        .about-tags span:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Dark mode */
+        body.dark .about-card {
+            background: #1a1b22;
+        }
+
+        body.dark .about-tags span {
+            background: linear-gradient(135deg, #2a2d3a, #3b3f52);
+            color: #e8e9ee;
+        }
+
+        /* =========================
+   PROJECTS – V2 UPGRADE
+========================= */
+
+        .project-card-v2 {
+            position: relative;
+            background: var(--card);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, .18);
+            transition: transform .5s cubic-bezier(.22, .61, .36, 1),
+                box-shadow .5s cubic-bezier(.22, .61, .36, 1);
+            opacity: 0;
+            transform: translateY(60px) scale(.96);
+        }
+
+        .project-card-v2.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .project-card-v2:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 50px 120px rgba(0, 0, 0, .35);
+        }
+
+        /* Imagen */
+        .project-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s ease;
+        }
+
+        .project-card-v2:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Overlay suave */
+        .project-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, .0),
+                    rgba(0, 0, 0, .45));
+        }
+
+        /* Info */
+        .project-info {
+            padding: 28px 26px 32px;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            font-size: 1rem;
+            opacity: .85;
+            line-height: 1.5;
+        }
+
+        /* CTA */
+        .project-actions {
+            margin-top: 18px;
+        }
+
+        /* Dark mode */
+        body.dark .project-card-v2 {
+            background: #1a1b22;
+        }
+
+        /* =========================
+   SKILLS – PREMIUM GRID
+========================= */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 26px;
+        }
+
+        /* Card */
+        .skill-card {
+            background: var(--card);
+            border-radius: 26px;
+            padding: 34px 20px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(40px) scale(.96);
+            transition:
+                transform .5s cubic-bezier(.22, .61, .36, 1),
+                box-shadow .4s ease,
+                opacity .5s ease;
+        }
+
+        .skill-card.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.06);
+            box-shadow: 0 35px 80px rgba(0, 0, 0, .25);
+        }
+
+        /* Icono */
+        .skill-icon {
+            font-size: 2.4rem;
+        }
+
+        /* Dark mode */
+        body.dark .skill-card {
+            background: #1a1b22;
+        }
+
+        .card,
+        .skill-card,
+        .project-card-v2,
+        .contact-card,
+        .about-card {
+            background: var(--card);
+            border-radius: 28px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            transition: all .45s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .card:hover,
+        .skill-card:hover,
+        .project-card-v2:hover,
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-card-v2 {
+            background: var(--card);
+            color: var(--text);
+        }
+
+        /* BOTÓN CV – VISIBLE EN LIGHT Y DARK */
+        .btn-cv {
+            background: var(--card);
+            color: var(--text);
+            border: 2px solid var(--accent);
+            padding: 14px 36px;
+            border-radius: 999px;
+            font-weight: 700;
+            letter-spacing: .3px;
+            box-shadow: var(--shadow-sm);
+            transition: all .35s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        /* Hover */
+        .btn-cv:hover {
+            background: var(--accent);
+            color: #0f0f14;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Dark mode */
+        body.dark .btn-cv {
+            background: #1a1b22;
+            color: var(--text);
+            border-color: var(--accent);
+        }
+
+        body.dark .btn-cv:hover {
+            background: var(--accent);
+            color: #0f0f14;
+        }
+
+        /* =========================
+   SECTION BACKGROUNDS – LIGHT
+========================= */
+        .bg-hero {
+            background: linear-gradient(135deg,
+                    var(--accent-soft),
+                    #ffffff);
+        }
+
+        .bg-about {
+            background: #f1f3f7;
+        }
+
+        .bg-skills {
+            background: #e6eaf2;
+        }
+
+        .bg-projects {
+            background: #dde3ee;
+        }
+
+        .bg-contact {
+            background: #d4dbe8;
+        }
+
+        /* HERO – COLOR DE TEXTO CORRECTO */
+        .hero {
+            color: var(--text);
+        }
+
+        /* Dark mode */
+        body.dark .hero {
+            color: #ffffff;
+        }
     </style>
 
 
@@ -448,7 +785,9 @@ $habilidades = [
                 <a href="#habilidades" class="btn btn-main me-3">Habilidades</a>
                 <a href="#proyectos" class="btn btn-main btn-cta me-3">Proyectos</a>
                 <a href="#contacto" class="btn btn-main me-3">Contacto</a>
-                <a href="<?= $cv ?>" class="btn btn-outline-light" download>Descargar CV</a>
+                <br><br><br>
+                <a href="<?= $cv ?>" class="btn btn-cv" download>Descargar CV</a>
+
             </div>
         </div>
     </section>
@@ -456,50 +795,120 @@ $habilidades = [
     <!-- SOBRE MI -->
     <section id="sobre" class="bg-about" data-bg>
         <div class="container-narrow">
-            <div class="row align-items-center g-5">
+            <div class="about-card row align-items-center g-5">
+
+                <!-- IMAGEN GRANDE -->
                 <div class="col-md-5 text-center">
-                    <img src="<?= $foto ?>" alt="Foto de <?= $nombre ?>" class="profile-img">
+                    <div class="about-photo">
+                        <img src="<?= $foto ?>" alt="Foto de <?= $nombre ?>">
+                    </div>
                 </div>
+
+                <!-- CONTENIDO -->
                 <div class="col-md-7">
-                    <h2>Sobre mí</h2>
-                    <p class="mt-3">
-                        Soy estudiante de Ingeniería en Computación con enfoque en desarrollo web,
-                        software y videojuegos. Me interesa construir soluciones bien diseñadas,
-                        eficientes y fáciles de mantener.
+                    <h2 class="mb-3">Sobre mí</h2>
+
+                    <p class="lead">
+                        Estudiante de Ingeniería Informática con enfoque en desarrollo de
+                        <strong>software</strong>, <strong>aplicaciones web</strong> y
+                        <strong>videojuegos</strong>.
                     </p>
-                    <p>
-                        He trabajado con PHP, Python, Django, Unity y bases de datos,
-                        siempre buscando buenas prácticas, código limpio y una experiencia
-                        clara para el usuario.
+
+                    <p class="opacity-85">
+                        Me gusta crear soluciones modernas, bien estructuradas y fáciles
+                        de mantener, aplicando buenas prácticas y una experiencia clara
+                        para el usuario.
                     </p>
+
+                    <p class="opacity-85">
+                        He trabajado con tecnologías como <strong>PHP</strong>,
+                        <strong>Python</strong>, <strong>Django</strong>,
+                        <strong>MySQL</strong> y <strong>Unity</strong>,
+                        integrando frontend y backend en proyectos reales.
+                    </p>
+
+                    <!-- HIGHLIGHTS -->
+                    <div class="about-tags mt-4">
+                        <span>💻 Desarrollo Web</span>
+                        <span>🎮 Videojuegos</span>
+                        <span>⚙️ Backend & APIs</span>
+                        <span>🧠 Código limpio</span>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="#proyectos" class="btn btn-main me-3">
+                            Ver proyectos
+                        </a>
+                        <a href="<?= $cv ?>" class="btn btn-cv" download>Descargar CV</a>
+
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
+
 
     <!-- HABILIDADES -->
     <section id="habilidades" class="bg-skills" data-bg>
         <div class="container-narrow text-center">
-            <h2>Habilidades</h2>
-            <div class="mt-4">
+            <h2 class="mb-3">Habilidades</h2>
+            <p class="opacity-75 mb-5">
+                Tecnologías y herramientas que utilizo en mis proyectos
+            </p>
+
+            <div class="skills-grid">
                 <?php foreach ($habilidades as $h): ?>
-                    <span class="badge-skill"><?= $h ?></span>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <?php
+                            $icons = [
+                                "PHP" => "🐘",
+                                "JavaScript" => "🟨",
+                                "HTML" => "🌐",
+                                "CSS" => "🎨",
+                                "Bootstrap" => "🅱️",
+                                "Python" => "🐍",
+                                "Django" => "🌱",
+                                "MySQL" => "🗄️",
+                                "Unity (C#)" => "🎮",
+                                "Git" => "🔧"
+                            ];
+                            echo $icons[$h] ?? "⚙️";
+                            ?>
+                        </div>
+                        <span><?= $h ?></span>
+                    </div>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
+
     <!-- PROYECTOS -->
     <section id="proyectos" class="bg-projects" data-bg>
         <div class="container-narrow">
-            <h2 class="text-center">Proyectos</h2>
+            <h2 class="text-center mb-3">Proyectos</h2>
+            <p class="text-center opacity-75">
+                Algunos de los proyectos en los que he trabajado, aplicando desarrollo web,
+                software y videojuegos.
+            </p>
 
-            <div class="projects-grid">
+            <div class="projects-grid mt-5">
                 <?php foreach ($proyectos as $p): ?>
-                    <div class="project-card">
-                        <img src="<?= $p['imagen'] ?>" alt="<?= $p['titulo'] ?>">
-                        <div class="project-content">
+                    <div class="project-card-v2">
+                        <div class="project-image">
+                            <img src="<?= $p['imagen'] ?>" alt="<?= $p['titulo'] ?>">
+                        </div>
+
+                        <div class="project-info">
                             <h3><?= $p['titulo'] ?></h3>
                             <p><?= $p['descripcion'] ?></p>
+
+                            <div class="project-actions">
+                                <a href="#" class="btn btn-main btn-sm">
+                                    Ver proyecto
+                                </a>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -507,14 +916,37 @@ $habilidades = [
         </div>
     </section>
 
+
     <!-- CONTACTO -->
-    <section id="contacto" class="text-center bg-contact" data-bg>
-        <div class="container-narrow">
+    <section id="contacto" class="bg-contact" data-bg>
+        <div class="container-narrow text-center">
             <h2>Contacto</h2>
-            <p class="mt-3"><?= $email ?></p>
-            <p><?= $telefono ?></p>
+            <p class="mt-2 opacity-75">
+                ¿Tienes una propuesta, práctica o proyecto en mente?
+            </p>
+
+            <div class="contact-card mt-5 mx-auto">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:<?= $email ?>"><?= $email ?></a>
+                </div>
+
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="https://wa.me/56976881742" target="_blank">
+                        <?= $telefono ?>
+                    </a>
+                </div>
+
+                <div class="mt-4">
+                    <a href="mailto:<?= $email ?>" class="btn btn-main me-2">
+                        Enviar correo
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
+
 
     <footer class="text-center">
         © <?= date("Y") ?> <?= $nombre ?> · Portafolio Profesional
@@ -599,6 +1031,48 @@ $habilidades = [
         });
 
         projectCards.forEach(card => projectObserver.observe(card));
+        /* =========================
+   PROJECTS V2 – STAGGER
+========================= */
+        const projectV2 = document.querySelectorAll('.project-card-v2');
+
+        const projectV2Observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    projectV2.forEach((card, i) => {
+                        setTimeout(() => {
+                            card.classList.add('show');
+                        }, i * 140);
+                    });
+                    projectV2Observer.disconnect();
+                }
+            });
+        }, {
+            threshold: 0.25
+        });
+
+        projectV2Observer.observe(document.querySelector('#proyectos'));
+        /* =========================
+   SKILLS – STAGGER
+========================= */
+        const skillCards = document.querySelectorAll('.skill-card');
+
+        const skillsObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    skillCards.forEach((card, i) => {
+                        setTimeout(() => {
+                            card.classList.add('show');
+                        }, i * 90);
+                    });
+                    skillsObserver.disconnect();
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        skillsObserver.observe(document.querySelector('#habilidades'));
     </script>
 
 
