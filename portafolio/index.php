@@ -8,7 +8,7 @@ $cv = "cv/Diego_Barra_CV.pdf";
 $foto = "img/xd.png";
 $proyectos = [
     [
-        "titulo" => "Sistema de Ventas – Minimarket",
+        "titulo" => "Proyecto-de-integracion",
         "descripcion" => "Sistema de ventas, inventario y facturación desarrollado en PHP.",
         "imagen" => "img/xd.png"
     ],
@@ -295,12 +295,18 @@ $habilidades = [
             color: #ffffff;
         }
 
+        .project-card:hover {
+            transition: .1s;
+            filter: brightness(1.05);
+        }
+
         body.dark .project-card {
             background: linear-gradient(180deg, #f8f8f8, #0000005d);
             border-color: rgb(255, 255, 255);
         }
 
         .project-card::before {
+            transition: .1s;
             content: "";
             position: absolute;
             inset: 0;
@@ -310,21 +316,22 @@ $habilidades = [
         }
 
         .project-card:hover::before {
+
             box-shadow: 0 20px 40px rgb(255, 255, 255);
         }
 
         /* IMAGE PANEL */
         .project-card img {
-            border-bottom: 1px solid rgba(0, 180, 216, .4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
             filter: saturate(1.1) contrast(1.05);
         }
 
         /* BADGES */
         .badge-skill {
-            background: linear-gradient(135deg, #128bdb, #000000);
+            background: linear-gradient(135deg, #929292, #000000);
             color: #ffffff;
             font-weight: 700;
-            box-shadow: 0 5px 15px rgba(72, 202, 228, .4);
+            box-shadow: 0 5px 15px var(--accent);
         }
 
         /* DARK MODE TWEAKS */
